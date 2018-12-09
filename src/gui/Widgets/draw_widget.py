@@ -6,9 +6,10 @@ from util.logger import print_log
 
 class DrawWidget(QtGui.QWidget):
     
-    def __init__(self):
+    def __init__(self, draw_controller):
         super().__init__()
         self._grid = QtGui.QGridLayout()
+        self._draw_controller = draw_controller
         self.initUI()
         
         
@@ -24,4 +25,4 @@ class DrawWidget(QtGui.QWidget):
 
         self._grid.addWidget(self._main_plot, 1, 1, 5, 5)
         self.setLayout(self._grid)
-        self.show()
+  

@@ -4,18 +4,26 @@ import numpy as np
 import pyqtgraph as pg
 #import GridWidget
 from .central_widget import CentralWidget
+from .menu_bar import MenuBar
 
 class MainWidget(QtGui.QMainWindow):
     
     def __init__(self):
         super().__init__()
+        self._init_menubar()
+        self._init_ui()
         
-        self.initUI()
+    def _init_menubar(self):
+
+        self._menubar = MenuBar()
+        self.setMenuBar(self._menubar)
         
+    def _init_ui(self):
         
-    def initUI(self):
-        
-        self.setGeometry(300, 300, 300, 220)
+        #TODO scale with screen resolution
+        self.setGeometry(400, 100, 1200, 820)
+
+        #TODO: Move this to database
         self.setWindowTitle('Hardware Functional Tool')
         self._central_widget = CentralWidget()
         self.setCentralWidget(self._central_widget)
